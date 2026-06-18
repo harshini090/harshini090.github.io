@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshini Chowdary Kilari — Full-Stack Developer & AI Enthusiast</title>
+  
+  <!-- Fonts: Distinctive serif for display + refined sans for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=General+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="images/IMG_4849.jpeg" />
+</head>
+
+<body>
+  <!-- Subtle noise texture overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Bee Tour Guide -->
+  <div class="bee-tour" id="beeTour" aria-hidden="true">
+    <div class="bee-speech" id="beeSpeech">
+      <p id="beeSpeechText"></p>
+      <div class="bee-action-btns" id="beeBtns">
+        <button class="bee-btn-yes" id="beeBtnYes">Yes, show me! &#x2728;</button>
+        <button class="bee-btn-no" id="beeBtnNo">No thanks</button>
+      </div>
+      <button class="bee-skip" id="beeSkip">Skip tour</button>
+    </div>
+    <div class="bee-wrapper" id="beeWrapper" role="img" aria-label="Animated bee mascot">
+      <div class="bee-glow"></div>
+      <svg class="bee-svg" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="beeBodyGrad" cx="38%" cy="28%" r="62%">
+            <stop offset="0%" stop-color="rgba(255,220,140,0.55)"/>
+            <stop offset="100%" stop-color="rgba(90,45,0,0.25)"/>
+          </radialGradient>
+          <radialGradient id="beeHeadGrad" cx="35%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="rgba(255,225,150,0.5)"/>
+            <stop offset="100%" stop-color="rgba(100,55,0,0.2)"/>
+          </radialGradient>
+        </defs>
+        <ellipse class="bee-wing-l" cx="13" cy="19" rx="12" ry="7" fill="rgba(195,218,255,0.62)" stroke="rgba(160,200,255,0.75)" stroke-width="0.6"/>
+        <ellipse class="bee-wing-r" cx="43" cy="19" rx="12" ry="7" fill="rgba(195,218,255,0.62)" stroke="rgba(160,200,255,0.75)" stroke-width="0.6"/>
+        <ellipse cx="28" cy="40" rx="13" ry="16" fill="#c9a060"/>
+        <ellipse cx="28" cy="40" rx="13" ry="16" fill="url(#beeBodyGrad)"/>
+        <path d="M15.5 37 Q28 39.5 40.5 37 L40.5 42.5 Q28 45 15.5 42.5 Z" fill="#180800" opacity="0.42"/>
+        <path d="M16.5 46 Q28 48.5 39.5 46 L39.5 51 Q28 53.5 16.5 51 Z" fill="#180800" opacity="0.42"/>
+        <circle cx="28" cy="24" r="9" fill="#d4a060"/>
+        <circle cx="28" cy="24" r="9" fill="url(#beeHeadGrad)"/>
+        <ellipse cx="23.5" cy="20.5" rx="3" ry="2.2" fill="rgba(255,255,255,0.32)" transform="rotate(-15 23.5 20.5)"/>
+        <circle cx="24.5" cy="24" r="2.1" fill="#1a0600"/>
+        <circle cx="31.5" cy="24" r="2.1" fill="#1a0600"/>
+        <circle cx="25.2" cy="23.2" r="0.75" fill="white"/>
+        <circle cx="32.2" cy="23.2" r="0.75" fill="white"/>
+        <path d="M24.5 27.5 Q28 30.5 31.5 27.5" stroke="#1a0600" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M25 16 Q20.5 7.5 16.5 5.5" stroke="#b8883a" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="16.5" cy="5.5" r="2.2" fill="#c9a060"/>
+        <path d="M31 16 Q35.5 7.5 39.5 5.5" stroke="#b8883a" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="39.5" cy="5.5" r="2.2" fill="#c9a060"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Floating Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">HCK</a>
+      <div class="nav-menu">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-inner">
+        <!-- Profile picture with floating effect and organic blob mask -->
+        <div class="profile-container">
+          <div class="profile-glow"></div>
+          <img src="images/IMG_4849.jpeg" alt="Harshini Chowdary" class="profile-image" />
+        </div>
+        
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="title-line">Harshini Chowdary</span>
+            <span class="title-line">Kilari</span>
+          </h1>
+          
+          <p class="hero-subtitle">Full-Stack Web Developer & AI Prompt Engineering Enthusiast</p>
+          
+          <div class="hero-description">
+            <p>Building modern web applications with a passion for intuitive frontend experiences and robust backend architectures. Specializing in React, Django, and cloud infrastructure, while exploring the intersection of AI and development through prompt engineering and automation.</p>
+          </div>
+          
+          <div class="hero-meta">
+            <span class="meta-item">MS Computer Science</span>
+            <span class="meta-divider">·</span>
+            <span class="meta-item">AWS Certified</span>
+            <span class="meta-divider">·</span>
+            <span class="meta-item">Frontend Enthusiast</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M6 1V11M6 11L11 6M6 11L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work-section" id="work">
+      <div class="section-container">
+        <header class="section-header">
+          <h2 class="section-title">Selected Work</h2>
+          <p class="section-subtitle">A curated collection of full-stack projects</p>
+        </header>
+
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
+          <button class="filter-btn" data-filter="ai">AI-Powered</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 01 - NEW JOB TRACKER -->
+          <article class="project-card" data-category="fullstack">
+            <div class="project-visual">
+              <div class="project-number">01</div>
+              <div class="project-preview">
+                <!-- You'll add screenshots here -->
+                <div class="preview-placeholder">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="9"></line>
+                    <line x1="9" y1="13" x2="15" y2="13"></line>
+                    <line x1="9" y1="17" x2="13" y2="17"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="project-gradient"></div>
+              <div class="project-badge">In Development</div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Job Application Tracker</h3>
+              <p class="project-description">
+                Production-ready full-stack application with secure authentication, email verification flow, and user-scoped data management. Features real-world backend patterns including JWT tokens, RESTful APIs, and scalable architecture ready for deployment.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Django</span>
+                <span class="tag">React</span>
+                <span class="tag">Vite</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">REST API</span>
+                <span class="tag">JWT Auth</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/harshini090/Job-tracker-fullstack" class="project-link" target="_blank">
+                  View on GitHub
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project-card" data-category="frontend ai">
+            <div class="project-visual">
+              <div class="project-number">02</div>
+              <img
+                class="project-theme-icon"
+                src="images/IMG_0102_transparent.png"
+                data-dark="images/IMG_0102_transparent.png"
+                data-light="images/IMG_0103_transparent.png"
+                alt="Content Performance Analytics"
+              />
+              <div class="project-gradient"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Content Performance Analytics</h3>
+              <p class="project-description">
+                Interactive data visualization dashboard with intelligent aggregation algorithms and responsive design. Transforms complex metrics across 15+ regions into actionable insights through thoughtful UI/UX and data storytelling.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Recharts</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Vite</span>
+                <span class="tag">Data Viz</span>
+              </div>
+              <div class="project-links">
+                <a href="https://content-performance-dashboard-mu.vercel.app/" class="project-link" target="_blank">
+                  View Project
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/harshini090/content-performance-dashboard" class="project-link secondary" target="_blank">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project-card" data-category="frontend">
+            <div class="project-visual">
+              <div class="project-number">03</div>
+              <img
+                class="project-theme-icon"
+                src="images/IMG_0102_transparent.png"
+                data-dark="images/IMG_0102_transparent.png"
+                data-light="images/IMG_0103_transparent.png"
+                alt="Solstice Pod Quick Connect"
+              />
+              <div class="project-gradient"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Solstice Pod Quick Connect</h3>
+              <p class="project-description">
+                Device-agnostic interactive guide with clean, intuitive navigation designed for UC classroom environments. Seamless cross-platform experience for Windows, Mac, and mobile users with focus on accessibility and user flow.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Responsive Design</span>
+              </div>
+              <div class="project-links">
+                <a href="https://solsticeguide.vercel.app/" class="project-link" target="_blank">
+                  View Project
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/harshini090/Solsticeguide" class="project-link secondary" target="_blank">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 04 -->
+          <article class="project-card" data-category="fullstack">
+            <div class="project-visual">
+              <div class="project-number">04</div>
+              <img
+                class="project-theme-icon"
+                src="images/IMG_0102_transparent.png"
+                data-dark="images/IMG_0102_transparent.png"
+                data-light="images/IMG_0103_transparent.png"
+                alt="Real Estate Management System"
+              />
+              <div class="project-gradient"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Real Estate Management System</h3>
+              <p class="project-description">
+                Enterprise-grade platform with RESTful API architecture and PostgreSQL backend, processing 1000+ daily transactions. Features comprehensive admin dashboards with real-time analytics and property management workflows.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Django</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">Python</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/harshini090/MYHackathon" class="project-link" target="_blank">
+                  View on GitHub
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 05 -->
+          <article class="project-card" data-category="fullstack frontend">
+            <div class="project-visual">
+              <div class="project-number">05</div>
+              <img
+                class="project-theme-icon"
+                src="images/IMG_0102_transparent.png"
+                data-dark="images/IMG_0102_transparent.png"
+                data-light="images/IMG_0103_transparent.png"
+                alt="Weather Data Application"
+              />
+              <div class="project-gradient"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Weather Data Application</h3>
+              <p class="project-description">
+                API-driven weather platform with real-time data processing and interactive UI. Demonstrates modern React patterns, state management, and responsive design principles with clean data presentation.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React 18</span>
+                <span class="tag">APIs</span>
+                <span class="tag">Data Processing</span>
+                <span class="tag">Netlify</span>
+              </div>
+              <div class="project-links">
+                <a href="https://weatherapi0805.netlify.app/" class="project-link" target="_blank">
+                  View Project
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/harshini090/myweather" class="project-link secondary" target="_blank">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 06 -->
+          <article class="project-card" data-category="fullstack frontend">
+            <div class="project-visual">
+              <div class="project-number">06</div>
+              <img
+                class="project-theme-icon"
+                src="images/IMG_0102_transparent.png"
+                data-dark="images/IMG_0102_transparent.png"
+                data-light="images/IMG_0103_transparent.png"
+                alt="Kokoro Wellness App"
+              />
+              <div class="project-gradient"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Kokoro Wellness App</h3>
+              <p class="project-description">
+                Wellness tracking application with dynamic data visualizations using Chart.js. Built with Svelte for optimal performance, featuring mood tracking, progress charts, and user-focused design patterns.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Svelte</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Chart.js</span>
+                <span class="tag">UX Design</span>
+              </div>
+              <div class="project-links">
+                <a href="https://kokoro-35lbfoxj7-harshs-projects-5bb15c7b.vercel.app/" class="project-link" target="_blank">
+                  View Project
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/harshini090/kokoro" class="project-link secondary" target="_blank">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 07 -->
+          <article class="project-card" data-category="ai frontend">
+            <div class="project-visual">
+              <div class="project-number">07</div>
+              <img
+                class="project-theme-icon"
+                src="images/IMG_0102_transparent.png"
+                data-dark="images/IMG_0102_transparent.png"
+                data-light="images/IMG_0103_transparent.png"
+                alt="Tic Tac Toe vs AI"
+              />
+              <div class="project-gradient"></div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Tic Tac Toe </h3>
+              <p class="project-description">
+                Interactive Tic Tac Toe game with AI opponent using Minimax algorithm. Built as a 20-minute prompt engineering experiment to explore how LLMs assist in rapid development, validate AI-generated logic, and improve structured technical prompting.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Vanilla JavaScript</span>
+                <span class="tag">AI/Minimax</span>
+                <span class="tag">Prompt Engineering</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+              </div>
+              <div class="project-links">
+                <a href="https://tic-tac-toe-ai--harshinichowda4.replit.app/" class="project-link" target="_blank">
+                  View Project
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/harshini090/TIC-TAC-TOE-" class="project-link secondary" target="_blank">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 08 - ClaimSense -->
+          <article class="project-card claimsense-card" data-category="fullstack ai">
+            <div class="project-visual">
+              <div class="project-number">08</div>
+              <div class="arch-diagram">
+                <div class="arch-layer layer-api">
+                  <div class="arch-dot"></div>
+                  <span class="arch-label">FastAPI &middot; REST &middot; JWT Auth</span>
+                </div>
+                <div class="arch-arrow">
+                  <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M5 0V13M5 13L1 9M5 13L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="arch-layer layer-logic">
+                  <div class="arch-dot"></div>
+                  <span class="arch-label">NLP Engine &middot; Celery Workers</span>
+                </div>
+                <div class="arch-arrow">
+                  <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M5 0V13M5 13L1 9M5 13L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="arch-layer layer-data">
+                  <div class="arch-dot"></div>
+                  <span class="arch-label">PostgreSQL &middot; Redis Cache</span>
+                </div>
+              </div>
+              <div class="project-gradient"></div>
+              <div class="project-badge hosting-badge">Outgrew Free Hosting</div>
+            </div>
+            <div class="project-content">
+              <div class="claimsense-title-row">
+                <h3 class="project-title">ClaimSense</h3>
+                <span class="arch-badge-inline">Architecture Showcase</span>
+              </div>
+              <p class="project-description">
+                AI-powered insurance claims processing platform with NLP-driven document parsing, multi-tenant architecture, and real-time status tracking. Built to production-ready standards with async task queues and role-based access control — resource intensity exceeded free-tier hosting limits.
+              </p>
+              <div class="project-tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">Python</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Redis</span>
+                <span class="tag">Celery</span>
+                <span class="tag">JWT Auth</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/harshini090/ClaimSense" class="project-link" target="_blank">
+                  View on GitHub
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="#" class="project-link secondary video-demo-btn" onclick="return false;" title="Demo video coming soon">
+                  Watch Demo
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M5.5 4.5L10 7L5.5 9.5V4.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section" id="experience">
+      <div class="section-container">
+        <header class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">Professional journey and contributions</p>
+        </header>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Dec 2025 — Present</div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <h3 class="timeline-title">Cloud Infrastructure Intern</h3>
+                <p class="timeline-company">Find Me LLC · Remote</p>
+                <ul class="timeline-list">
+                  <li>Support backend cloud infrastructure on AWS using EC2, S3, IAM, VPC, and Lambda services</li>
+                  <li>Monitor system performance metrics and create dashboards for tracking service reliability</li>
+                  <li>Document API architectures and deployment workflows for engineering collaboration</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span>AWS</span>
+                  <span>Lambda</span>
+                  <span>EC2</span>
+                  <span>S3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Nov 2025 — Present</div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <h3 class="timeline-title">Classroom Technology Assistant</h3>
+                <p class="timeline-company">University of Cincinnati, College of Nursing</p>
+                <ul class="timeline-list">
+                  <li>Deliver Tier II technical support for 20+ technology-enabled classrooms</li>
+                  <li>Install and maintain classroom hardware to minimize downtime</li>
+                  <li>Troubleshoot network connectivity and hardware failures</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span>Windows</span>
+                  <span>macOS</span>
+                  <span>Hardware Support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Dec 2024 — Oct 2025</div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <h3 class="timeline-title">Graduate Assistant — IT Support</h3>
+                <p class="timeline-company">University of Cincinnati, CEAS</p>
+                <ul class="timeline-list">
+                  <li>Provided technical support for 100+ Windows endpoints using ServiceNow</li>
+                  <li>Managed Active Directory accounts, OS imaging, and SCCM deployments</li>
+                  <li>Created technical documentation and knowledge base articles</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span>ServiceNow</span>
+                  <span>Active Directory</span>
+                  <span>SCCM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Jun 2023 — May 2024</div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <h3 class="timeline-title">Research Assistant — Data Engineering</h3>
+                <p class="timeline-company">KL University</p>
+                <ul class="timeline-list">
+                  <li>Developed Python pipelines processing 10,000+ audio records with automation</li>
+                  <li>Created visualization scripts to communicate research findings</li>
+                  <li>Reduced data preprocessing time by 35% through optimization</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span>Python</span>
+                  <span>Pandas</span>
+                  <span>Data Processing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Dec 2022 — Feb 2023</div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <h3 class="timeline-title">Software Development Intern</h3>
+                <p class="timeline-company">Juniper Networks · Remote</p>
+                <ul class="timeline-list">
+                  <li>Built backend automation services using Node.js and AWS</li>
+                  <li>Increased test coverage by 25%, reducing production bugs by 35%</li>
+                  <li>Participated in Agile sprints, code reviews, and CI/CD deployments</li>
+                </ul>
+                <div class="timeline-tags">
+                  <span>Node.js</span>
+                  <span>AWS</span>
+                  <span>CI/CD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Skills Combined Section -->
+    <section class="credentials-section">
+      <div class="section-container">
+        <div class="credentials-grid">
+          <!-- Certifications -->
+          <div class="credentials-group">
+            <h2 class="group-title">Certifications</h2>
+            <div class="cert-list">
+              <a href="https://www.credly.com/badges/2ca4877f-64ac-421d-9487-301499a9e147/public_url" target="_blank" class="cert-item">
+                <div class="cert-content">
+                  <h3>AWS Certified Developer — Associate</h3>
+                  <p>Amazon Web Services · 2026</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href="https://www.credly.com/badges/32cd2652-9638-4b66-a4da-b5023685d4b1/public_url" target="_blank" class="cert-item">
+                <div class="cert-content">
+                  <h3>AWS Certified Cloud Practitioner</h3>
+                  <p>Amazon Web Services · 2026</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="credentials-group">
+            <h2 class="group-title">Technical Skills</h2>
+            <div class="skills-list">
+              <div class="skill-category">
+                <h4>Frontend Development</h4>
+                <div class="skill-tags">
+                  <span>React</span>
+                  <span>JavaScript/ES6+</span>
+                  <span>HTML5/CSS3</span>
+                  <span>Svelte</span>
+                  <span>Vite</span>
+                  <span>Responsive Design</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Backend & APIs</h4>
+                <div class="skill-tags">
+                  <span>Django</span>
+                  <span>Node.js</span>
+                  <span>REST APIs</span>
+                  <span>PostgreSQL</span>
+                  <span>Python</span>
+                  <span>SQL</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Cloud & DevOps</h4>
+                <div class="skill-tags">
+                  <span>AWS (EC2, S3, Lambda)</span>
+                  <span>Git/GitHub</span>
+                  <span>CI/CD</span>
+                  <span>Docker</span>
+                  <span>Vercel/Netlify</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Design & AI Tools</h4>
+                <div class="skill-tags">
+                  <span>Figma</span>
+                  <span>UI/UX Design</span>
+                  <span>Prompt Engineering</span>
+                  <span>Claude AI</span>
+                  <span>Stick</span>
+                  <span>Data Visualization</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Frameworks & Libraries</h4>
+                <div class="skill-tags">
+                  <span>Recharts</span>
+                  <span>Chart.js</span>
+                  <span>Tailwind CSS</span>
+                  <span>Bootstrap</span>
+                  <span>Pandas</span>
+                  <span>NumPy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="section-container">
+        <div class="contact-inner">
+          <h2 class="contact-title">Let's Build Something Great</h2>
+          <p class="contact-description">
+            Currently seeking internship and full-time opportunities in full-stack development, frontend engineering, and AI-powered applications. Passionate about creating exceptional user experiences with modern web technologies.
+          </p>
+          
+          <div class="contact-links">
+            <a href="mailto:harshinichowdarykilari@gmail.com" class="contact-link">
+              <span>Email</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/harshinichowdarykilari" target="_blank" class="contact-link">
+              <span>LinkedIn</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="https://github.com/harshini090" target="_blank" class="contact-link">
+              <span>GitHub</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="Specific.pdf" class="contact-link" download>
+              <span>Resume</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 2V12M8 12L12 8M8 12L4 8M2 14H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Harshini Chowdary Kilari. Crafted with passion for frontend excellence.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
