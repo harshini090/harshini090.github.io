@@ -98,19 +98,19 @@ export default function Projects() {
       mediaUrl: "/demos/solstice.mov"
     },
     {
-      title: "Real Estate System",
-      description: "Enterprise-grade RESTful platform processing 1000+ daily transactions with admin analytics.",
-      tags: ["Django", "PostgreSQL", "REST APIs"],
-      link: "https://github.com/harshini090/MYHackathon",
-      bentoSpan: "col-span-1 md:col-span-1 row-span-1",
-    },
-    {
       title: "CBT Simulation",
       description: "State-of-the-art interactive web simulation of a Cognitive Behavioral Therapy session featuring dynamic AI avatars and non-linear branching dialogue.",
       tags: ["Vanilla JS", "CSS3", "Web Speech API"],
       link: "https://github.com/harshini090/CBTsimulatiom",
       bentoSpan: "col-span-1 md:col-span-2 row-span-2",
       mediaUrl: "/demos/CBT.mov"
+    },
+    {
+      title: "Real Estate System",
+      description: "Enterprise-grade RESTful platform processing 1000+ daily transactions with admin analytics.",
+      tags: ["Django", "PostgreSQL", "REST APIs"],
+      link: "https://github.com/harshini090/MYHackathon",
+      bentoSpan: "col-span-1 md:col-span-1 row-span-1",
     }
   ];
 
