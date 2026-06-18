@@ -93,7 +93,7 @@ export default function Projects() {
       title: "Solstice Framework",
       description: "Front-end UI redesign and interactive HTML resources for the UC Nursing online resource platform.",
       tags: ["HTML/CSS", "JavaScript", "UI/UX"],
-      link: "#",
+      link: "https://github.com/harshini090/Solsticeguide",
       bentoSpan: "col-span-1 md:col-span-1 row-span-1",
       mediaUrl: "/demos/solstice.mov"
     },
