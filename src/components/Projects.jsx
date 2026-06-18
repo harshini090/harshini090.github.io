@@ -90,11 +90,19 @@ export default function Projects() {
       mediaUrl: "/demos/tic-tac-toe.mov"
     },
     {
+      title: "Solstice Framework",
+      description: "Front-end UI redesign and interactive HTML resources for the UC Nursing online resource platform.",
+      tags: ["HTML/CSS", "JavaScript", "UI/UX"],
+      link: "#",
+      bentoSpan: "col-span-1 md:col-span-1 row-span-1",
+      mediaUrl: "/demos/solstice.mov"
+    },
+    {
       title: "Real Estate System",
       description: "Enterprise-grade RESTful platform processing 1000+ daily transactions with admin analytics.",
       tags: ["Django", "PostgreSQL", "REST APIs"],
       link: "https://github.com/harshini090/MYHackathon",
-      bentoSpan: "col-span-1 md:col-span-1 row-span-1 md:row-span-2",
+      bentoSpan: "col-span-1 md:col-span-1 row-span-1",
     },
     {
       title: "CBT Simulation",
